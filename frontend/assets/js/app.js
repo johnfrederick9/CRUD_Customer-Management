@@ -265,7 +265,7 @@
                     document.body.removeChild(a);
                     showSuccess('PDF exported successfully!');
                 } else {
-                    showError('No data available. CSV cannot be generated.');
+                    showError('No data available. PDF cannot be generated.');
                 }
             } catch (error) {
                 console.error('Error exporting PDF:', error);
