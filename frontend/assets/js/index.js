@@ -105,3 +105,5 @@ document.getElementById("submitSignIn").addEventListener("click", function (e) {
         window.location.href = "dashboard.html"; // Redirect
     }, 1500);
 });
+
+

@@ -5,8 +5,9 @@
         }
 
         body {
+            overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #66aaea 0%, #4b7fa2 100%);
             padding: 20px;
             min-height: 100vh;
         }
@@ -21,7 +22,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4b7fa2  0%, #4b62a2 100%);
             color: white;
             padding: 30px;
             text-align: center;
@@ -56,7 +57,7 @@
         }
 
         .btn-primary {
-            background: #667eea;
+            background: #4b7fa2 ;
             color: white;
         }
 
@@ -149,7 +150,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #4b7fa2 ;
         }
 
         .form-group textarea {
@@ -176,7 +177,7 @@
         }
 
         thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4b7fa2  0%, #4b62a2 100%);
             color: white;
         }
 
@@ -273,5 +274,56 @@
 
             th, td {
                 padding: 10px;
+            }
+        }
+        /* --- NEW HEADER WITH LOGOUT BUTTON --- */
+        .top-header {
+            background: linear-gradient(135deg, #4b7fa2 0%, #4b62a2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+        }
+
+        .header-left p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #b52d39;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        }
+
+        /* Responsive Header */
+        @media (max-width: 768px) {
+            .top-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .logout-btn {
+                width: 100%;
             }
         }
