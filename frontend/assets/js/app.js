@@ -240,7 +240,7 @@
                     document.body.removeChild(a);
                     showSuccess('CSV exported successfully!');
                 } else {
-                    showError('Failed to export CSV');
+                    showError('No data available. CSV cannot be generated.');
                 }
             } catch (error) {
                 console.error('Error exporting CSV:', error);
@@ -265,7 +265,7 @@
                     document.body.removeChild(a);
                     showSuccess('PDF exported successfully!');
                 } else {
-                    showError('Failed to export PDF');
+                    showError('No data available. CSV cannot be generated.');
                 }
             } catch (error) {
                 console.error('Error exporting PDF:', error);

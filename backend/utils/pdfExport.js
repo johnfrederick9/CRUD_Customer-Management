@@ -4,8 +4,14 @@ const path = require('path');
 
 function exportToPDF(customers) {
   return new Promise((resolve, reject) => {
-    const filePath = path.join(__dirname, '../exports', `customers_${Date.now()}.pdf`);
     
+    // 🔍 Validation: No data
+    if (!customers || customers.length === 0) {
+      return reject(new Error("No data available. PDF cannot be generated."));
+    }
+
+    const filePath = path.join(__dirname, '../exports', `customers_${Date.now()}.pdf`);
+
     // Ensure exports directory exists
     const exportDir = path.join(__dirname, '../exports');
     if (!fs.existsSync(exportDir)) {
@@ -34,30 +40,30 @@ function exportToPDF(customers) {
     doc.text('Name', 85, y, { width: 120 });
     doc.text('Email', 210, y, { width: 150 });
     doc.text('Phone', 365, y, { width: 100 });
-    
+
     // Draw header line
     doc.moveTo(50, y + 15).lineTo(550, y + 15).stroke();
     y += itemHeight;
 
     // Table content
     doc.font('Helvetica').fontSize(9);
-    
+
     customers.forEach((customer, i) => {
-      // Check if we need a new page
+      // New page if needed
       if (y > 700) {
         doc.addPage();
         y = 50;
       }
 
       const fullName = `${customer.first_name} ${customer.last_name}`;
-      
+
       doc.text(customer.id, 50, y, { width: 30 });
       doc.text(fullName, 85, y, { width: 120 });
       doc.text(customer.email, 210, y, { width: 150 });
       doc.text(customer.phone, 365, y, { width: 100 });
-      
+
       y += itemHeight;
-      
+
       // Draw separator line
       if (i < customers.length - 1) {
         doc.moveTo(50, y - 15).lineTo(550, y - 15).stroke();
